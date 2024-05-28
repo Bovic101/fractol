@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main.c                                          :+:      :+:    :+:   */
+/*   ft_mlxlib_function.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 17:13:45 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/05/28 14:37:23 by vodebunm         ###   ########.fr       */
+/*   Created: 2024/05/28 12:55:26 by vodebunm          #+#    #+#             */
+/*   Updated: 2024/05/28 14:55:26 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_fractal.h"
 
-int	main(int argc, char **argv)
+void	fractal_initialisation(t_ft_fractal	*my_fractal)
 {
-	t_ft_fractal	my_fractal;
-
-	if (argc == 2 && !ft_strncmp(argv[1], "Mandelbrot", 10) || argc == 4
-		&& !ft_strncmp(argv[1], "Julia", 5))
+	my_fractal->mlx_initialisation = mlx_init();
+	if (my_fractal->mlx_initialisation == NULL)
 	{
-		fractal_initialisation(&my_fractal);
-		fractal_generation(&my_fractal);
-		mlx_loop(my_fractal.mlx_initialisation);
-	}
-	else
-	{
-		printf("Input incorrect\n");
+		handle_malloc_error();//To implement
 	}
 }
