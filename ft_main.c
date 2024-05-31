@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:13:45 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/05/28 14:37:23 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/05/31 05:34:29 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int	main(int argc, char **argv)
 	if (argc == 2 && !ft_strncmp(argv[1], "Mandelbrot", 10) || argc == 4
 		&& !ft_strncmp(argv[1], "Julia", 5))
 	{
+		my_fractal.fractal_set = argv[1];
 		fractal_initialisation(&my_fractal);
-		fractal_generation(&my_fractal);
+		fractal_generator(&my_fractal);
 		mlx_loop(my_fractal.mlx_initialisation);
 	}
 	else
 	{
-		printf("Input incorrect\n");
+		printf("Input incorrect, enter correct program name\n");
 	}
 }

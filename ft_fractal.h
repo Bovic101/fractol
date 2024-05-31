@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:11:23 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/05/28 13:37:56 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/05/31 05:35:13 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define WIDTH	800
+# define HEIGHT	800
+
+
 // writing pixel to image
 
 typedef struct image_data
 {
-	void	*image;
+	void	*imageptr;
 	char	*pptr;
 	int		color_depth;
 	int		line_length;
@@ -39,9 +43,11 @@ typedef struct fractal_window_struct
 {
 	void	*mlx_initialisation; // mlx_init
 	void	*mlx_win; // mlx_newwindow
+	char	*fractal_set;
 	// image manipulation
 	t_image	image;
-	// hooks
+	// hook
 }			t_ft_fractal;
-
+void	fractal_initialisation(t_ft_fractal	*my_fractal);
+void	handle_malloc_error(void);
 #endif
