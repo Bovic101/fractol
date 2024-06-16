@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:11:23 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/05/31 05:35:13 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/06/16 11:46:16 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH	800
-# define HEIGHT	800
+# define WIDTH 800
+# define HEIGHT 800
 
+typedef struct scaling_value
+{
+	double	min;
+	double	max;
+}			t_scale_range;
 
 // writing pixel to image
 
@@ -48,6 +53,6 @@ typedef struct fractal_window_struct
 	t_image	image;
 	// hook
 }			t_ft_fractal;
-void	fractal_initialisation(t_ft_fractal	*my_fractal);
-void	handle_malloc_error(void);
+void		fractal_initialisation(t_ft_fractal *my_fractal);
+void		handle_malloc_error(void);
 #endif
