@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:11:23 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/06/16 11:46:16 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/06/23 10:59:05 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 
 # define WIDTH 800
 # define HEIGHT 800
+
+typedef struct specifix_complex_num
+{
+	double	a;
+	double	b;
+}			t_complex_num;
 
 typedef struct scaling_value
 {
@@ -53,6 +59,8 @@ typedef struct fractal_window_struct
 	t_image	image;
 	// hook
 }			t_ft_fractal;
+double		scale(double x, t_scale_range x_range, t_scale_range y_range);
 void		fractal_initialisation(t_ft_fractal *my_fractal);
 void		handle_malloc_error(void);
+
 #endif
