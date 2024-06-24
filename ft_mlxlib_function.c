@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:55:26 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/05/31 05:34:49 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:39:48 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ void	handle_malloc_error(void)
 {
 	perror("Malloc error");
 	exit(EXIT_FAILURE);
+}
+
+void	populate_data(t_ft_fractal *my_fractal)
+{
+	my_fractal ->escape_radius = 3;
+	my_fractal ->iteration_point = 46;
 }

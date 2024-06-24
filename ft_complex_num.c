@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 10:18:32 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/06/16 11:45:52 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:38:35 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ double	scale(double x, t_scale_range x_range, t_scale_range y_range)
 {
 	t_scale_range	x;
 	t_scale_range	y;
+	t_complex_num	result;
 
 	x.min = 0.0;
 	x.min = 299.0;
@@ -38,3 +39,18 @@ double	scale(double x, t_scale_range x_range, t_scale_range y_range)
 	}
 	return (0);
 }**/
+t_complex_num	multiply_complex(t_complex_num c)
+{
+	t_complex_num	result;
+
+	result.a = c.a * c.a - c.b * c.b;
+	result.b = 2 * c.a * c.b;
+	return (result);
+}
+
+t_complex_num	add_complex(t_complex_num c, t_complex_num d)
+{
+	result.a = c.a + d.a;
+	result.b = c.b + d.b;
+	return (result);
+}
