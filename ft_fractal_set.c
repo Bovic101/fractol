@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 05:33:49 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/03 15:57:04 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/17 16:35:20 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	fractal_generator(t_ft_fractal *my_fractal)
 	int	b;
 
 	b = 0;
+	printf("Starting fractal generation\n");
 	while (b < HEIGHT)
 	{
 		a = 0;
@@ -28,6 +29,7 @@ void	fractal_generator(t_ft_fractal *my_fractal)
 		}
 		b++;
 	}
+	printf("Finished fractal generation\n");
 	mlx_put_image_to_window(my_fractal->mlx_initialisation, my_fractal->mlx_win,
 		my_fractal->image.imageptr, 0, 0);
 }
@@ -36,27 +38,22 @@ void	pixel_axes_handler(int a, int b, t_ft_fractal *my_fractal)
 {
 	t_complex_num	z;
 	t_complex_num	c;
-	t_scale_range	x_range;
-	t_scale_range	y_range;
 	int				i;
 	int				colour;
 
 	i = 0;
 	z.a = 0.0;
 	z.b = 0.0;
-	x_range.min = 0;
-	x_range.max = WIDTH;
-	y_range.min = 0;
-	y_range.max = HEIGHT;
-	c.a = (scale(a, (t_scale_range){-2, 2}, x_range));
-	c.b = (scale(b, (t_scale_range){2, -2}, y_range));
+	c.a = scale(a, (t_scale_range){0, WIDTH}, (t_scale_range){-2, 2});
+	c.b = scale(b, (t_scale_range){0, HEIGHT}, (t_scale_range){+2, -2});
+	//printf("Pixel (%d, %d): c.a = %f, c.b = %f\n", a, b, c.a, c.b);
 	while (i < my_fractal->iteration_point)
 	{
 		z = add_complex(multiply_complex(z), c);
 		if ((z.a * z.a) + (z.b * z.b) > my_fractal->escape_radius)
 		{
-			colour = scale(i, (t_scale_range){BLACK, WHITE}, (t_scale_range){0,
-					my_fractal->iteration_point});
+			colour = scale(i, (t_scale_range){0, my_fractal->iteration_point},
+					(t_scale_range){BLACK, WHITE});
 			new_mlx_pixel_put(&my_fractal->image, a, b, colour);
 			return ;
 		}

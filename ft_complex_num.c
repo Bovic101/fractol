@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 10:18:32 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/20 03:19:19 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/17 16:35:29 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ double	scale(double x, t_scale_range x_range, t_scale_range y_range)
 		perror("Error in min and max values");
 		exit(EXIT_FAILURE);
 	}
-	return (y_range.min + ((x - x_range.min) * (y_range.max - y_range.min)
-			/ (x_range.max - x_range.min)));
+	return ((x - x_range.min) * (y_range.max - y_range.min) / (x_range.max
+			- x_range.min) + y_range.min);
 }
 
 /**int	main(void)
@@ -39,20 +39,20 @@ double	scale(double x, t_scale_range x_range, t_scale_range y_range)
 	}
 	return (0);
 }**/
-t_complex_num	multiply_complex(t_complex_num c)
-{
-	t_complex_num	result;
-
-	result.a = c.a * c.a - c.b * c.b;
-	result.b = 2 * c.a * c.b;
-	return (result);
-}
-
 t_complex_num	add_complex(t_complex_num c, t_complex_num d)
 {
 	t_complex_num	result;
 
 	result.a = c.a + d.a;
 	result.b = c.b + d.b;
+	return (result);
+}
+
+t_complex_num	multiply_complex(t_complex_num c)
+{
+	t_complex_num	result;
+
+	result.a = c.a * c.a - c.b * c.b;
+	result.b = 2 * c.a * c.b;
 	return (result);
 }

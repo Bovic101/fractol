@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:55:26 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/06/24 12:39:48 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/17 16:36:03 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ void	fractal_initialisation(t_ft_fractal *my_fractal)
 		free(my_fractal->mlx_initialisation);
 		handle_malloc_error();
 	}
-	my_fractal->image.pptr = mlx_get_data_addr(my_fractal->image.pptr,
+	my_fractal->image.pptr = mlx_get_data_addr(my_fractal->image.imageptr,
 			&my_fractal->image.color_depth, &my_fractal->image.line_length,
 			&my_fractal->image.endian);
+	populate_data(my_fractal);
 }
 
 void	handle_malloc_error(void)
@@ -49,6 +50,6 @@ void	handle_malloc_error(void)
 
 void	populate_data(t_ft_fractal *my_fractal)
 {
-	my_fractal ->escape_radius = 3;
-	my_fractal ->iteration_point = 46;
+	my_fractal->escape_radius = 4;
+	my_fractal->iteration_point = 50;//need attention
 }
