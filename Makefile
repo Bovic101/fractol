@@ -6,13 +6,12 @@
 #    By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 19:58:37 by vodebunm          #+#    #+#              #
-#    Updated: 2024/07/21 14:20:12 by vodebunm         ###   ########.fr        #
+#    Updated: 2024/07/21 14:26:26 by vodebunm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 CC = gcc
-CFLAGS = -Iincludes
 SRCDIR = srcs
 OBJDIR = objs
 SRCS = $(wildcard $(SRCDIR)/*.c)
@@ -25,7 +24,7 @@ FTPRINTF_DIR = ft_printf
 FTPRINTF = $(FTPRINTF_DIR)/libftprintf.a
 MINILIBX_DIR = minilibx-linux
 MINILIBX_LIB = $(MINILIBX_DIR)/libmlx.a
-
+CFLAGS = -Iincludes
 # Include directories
 INCLUDES = -I$(LIBFT_DIR) -I$(FTPRINTF_DIR) -I$(MINILIBX_DIR)
 
