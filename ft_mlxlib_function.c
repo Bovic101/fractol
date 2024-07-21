@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:55:26 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/17 16:36:03 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/21 03:59:15 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	fractal_initialisation(t_ft_fractal *my_fractal)
 	my_fractal->image.pptr = mlx_get_data_addr(my_fractal->image.imageptr,
 			&my_fractal->image.color_depth, &my_fractal->image.line_length,
 			&my_fractal->image.endian);
+	populate_event(my_fractal);
 	populate_data(my_fractal);
 }
 
@@ -51,5 +52,19 @@ void	handle_malloc_error(void)
 void	populate_data(t_ft_fractal *my_fractal)
 {
 	my_fractal->escape_radius = 4;
-	my_fractal->iteration_point = 50;//need attention
+	my_fractal->iteration_point = 50; // need attention
+	my_fractal->move_a = 0.0;
+	my_fractal->move_b = 0.0;
+}
+
+void	populate_event(t_ft_fractal *my_fractal)
+{
+	mlx_hook(my_fractal->mlx_win, KeyPress, KeyPressMask, keyboard_function,
+		my_fractal);
+	mlx_hook(my_fractal->mlx_win, ButtonPress, ButtonPressMask, mouse_function,
+		my_fractal);
+	mlx_hook(my_fractal->mlx_win, DestroyNotify, StructureNotifyMask,
+		close_win_function, my_fractal);
+	mlx_hook(my_fractal->mlx_win, MotionNotify, PointerMotionHintMask,
+		pointer_function, my_fractal);
 }

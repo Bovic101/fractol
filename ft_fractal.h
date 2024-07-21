@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:11:23 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/17 16:34:58 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/21 03:52:04 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ typedef struct image_data
 // Mlx stuff
 typedef struct fractal_window_struct
 {
-	void	*mlx_initialisation; // mlx_init
-	void	*mlx_win;	// mlx_newwindow
-	char	*fractal_set;
+	void *mlx_initialisation; // mlx_init
+	void *mlx_win;            // mlx_newwindow
+	char		*fractal_set;
 	// image manipulation
-	t_image	image;
+	t_image		image;
 	// hook
-	double	escape_radius;
-	int		iteration_point;
+	double	move_a;
+	double	move_b;
+	double		escape_radius;
+	int			iteration_point;
 
 }				t_ft_fractal;
 
@@ -94,5 +96,11 @@ void			pixel_axes_handler(int a, int b, t_ft_fractal *my_fractal);
 void			populate_data(t_ft_fractal *my_fractal);
 void			new_mlx_pixel_put(t_image *imgdata, int x, int y, int color);
 void			fractal_generator(t_ft_fractal *my_fractal);
+void			populate_event(t_ft_fractal *my_fractal);
+int				keyboard_function(int keysym, t_ft_fractal *my_fractal);
+int				mouse_function(int button, int x, int y,
+					t_ft_fractal *my_fractal);
+int				close_win_function(t_ft_fractal *my_fractal);
+int				pointer_function(int a, int b, t_ft_fractal *my_fractal);
 
 #endif
