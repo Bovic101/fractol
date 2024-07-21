@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 12:55:26 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/21 03:59:15 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/21 04:54:12 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	populate_data(t_ft_fractal *my_fractal)
 {
 	my_fractal->escape_radius = 4;
 	my_fractal->iteration_point = 50; // need attention
+	my_fractal->zoom = 2;
 	my_fractal->move_a = 0.0;
 	my_fractal->move_b = 0.0;
 }

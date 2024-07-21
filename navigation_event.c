@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 17:09:53 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/21 04:29:28 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/21 05:09:23 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ int	keyboard_function(int key, t_ft_fractal *my_fractal)
 
 int	mouse_function(int button, int x, int y, t_ft_fractal *my_fractal)
 {
+	if (button == Button5)
+	{
+		my_fractal->zoom *= 0.5;
+	}
+	else if (button == Button4)
+	{
+		my_fractal->zoom *= 1;
+	}
 }
 
 int	close_win_function(t_ft_fractal *my_fractal)

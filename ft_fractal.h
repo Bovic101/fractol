@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:11:23 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/21 03:52:04 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/21 04:51:04 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct fractal_window_struct
 	// hook
 	double	move_a;
 	double	move_b;
+	double	zoom;
 	double		escape_radius;
 	int			iteration_point;
 

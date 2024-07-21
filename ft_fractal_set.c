@@ -6,7 +6,7 @@
 /*   By: vodebunm <vodebunm@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 05:33:49 by vodebunm          #+#    #+#             */
-/*   Updated: 2024/07/21 03:57:20 by vodebunm         ###   ########.fr       */
+/*   Updated: 2024/07/21 04:57:58 by vodebunm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	pixel_axes_handler(int a, int b, t_ft_fractal *my_fractal)
 	i = 0;
 	z.a = 0.0;
 	z.b = 0.0;
-	c.a = scale(a, (t_scale_range){0, WIDTH}, (t_scale_range){-2, 2})
-		+ my_fractal->move_a;
-	c.b = scale(b, (t_scale_range){0, HEIGHT}, (t_scale_range){+2, -2})
-		+ my_fractal->move_b;
+	c.a = (scale(a, (t_scale_range){0, WIDTH}, (t_scale_range){-2, 2})
+			* my_fractal->zoom) + my_fractal->move_a;
+	c.b = (scale(b, (t_scale_range){0, HEIGHT}, (t_scale_range){+2, -2})
+			* my_fractal->zoom) + my_fractal->move_b;
 	// printf("Pixel (%d, %d): c.a = %f, c.b = %f\n", a, b, c.a, c.b);
 	while (i < my_fractal->iteration_point)
 	{
